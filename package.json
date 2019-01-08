@@ -1,0 +1,30 @@
+{
+  "name": "gatsby-source-rss-feed",
+  "version": "0.0.1",
+  "description": "Gatsby source plugin for rss feed",
+  "main": "gatsby-node.js",
+  "scripts": {
+    "build": "babel src --out-dir .",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mottox2/gatsby-source-scrapbox.git"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source-plugin"
+  ],
+  "author": "mottox2",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.2.2",
+    "@babel/preset-env": "7.2.3"
+  },
+  "dependencies": {
+    "rss-parser": "^3.6.2"
+  },
+  "homepage": "https://github.com/mottox2/gatsby-source-scrapbox"
+}
