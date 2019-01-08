@@ -23,7 +23,7 @@ yarn add gatsby-source-rss-feed
 module.exports = {
   plugins: [
     {
-      resolve: `gatsby-source-esa`,
+      resolve: `gatsby-source-rss-feed`,
       options: {
         url: `RSS URL`,
         name: `Sample`

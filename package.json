@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-rss-feed",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Gatsby source plugin for rss feed",
   "main": "gatsby-node.js",
   "scripts": {
