@@ -1,4 +1,4 @@
-# gatsby-sourice-rss-feed
+# gatsby-source-rss-feed
 
 [![npm version](https://badge.fury.io/js/gatsby-source-rss-feed.svg)](https://badge.fury.io/js/gatsby-source-rss-feed)
 
