@@ -25,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
-        url: `RSS URL`,
-        name: `Sample`
+        url: `https://www.gatsbyjs.org/blog/rss.xml`,
+        name: `GatsbyBlog`
       }
     }
   ]
@@ -35,11 +35,13 @@ module.exports = {
 
 ## How to query
 
-QueryName: `Feed${name}`
+Query is `Feed${name}`.
+
+When name of options is `GatsbyBlog`, query named as `Feed$GatsbyBlog`.
 
 ```graphql
 {
-  allFeedSample {
+  allFeedGatsbyBlog {
     edges {
       node {
         title
@@ -49,7 +51,7 @@ QueryName: `Feed${name}`
     }
   }
 
-  feedSample {
+  feedGatsbyBlog {
     title
     link
     content
