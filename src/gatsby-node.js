@@ -14,6 +14,14 @@ exports.sourceNodes = async ({
   url,
   name,
 }) => {
+  if (!url) {
+    throw new Error('url is required.')
+  }
+
+  if (!name) {
+    throw new Error('name is required.')
+  }
+
   const { createNode } = actions
   const parser = new Parser()
 
