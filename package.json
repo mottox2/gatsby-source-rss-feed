@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mottox2/gatsby-source-scrapbox.git"
+    "url": "https://github.com/mottox2/gatsby-source-rss-feed.git"
   },
   "keywords": [
     "gatsby",
@@ -26,5 +26,5 @@
   "dependencies": {
     "rss-parser": "^3.6.2"
   },
-  "homepage": "https://github.com/mottox2/gatsby-source-scrapbox"
+  "homepage": "https://github.com/mottox2/gatsby-source-rss-feed"
 }
