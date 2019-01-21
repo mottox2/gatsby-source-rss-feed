@@ -37,7 +37,7 @@ module.exports = {
 
 Query is `Feed${name}`.
 
-When name of options is `GatsbyBlog`, query named as `Feed$GatsbyBlog`.
+When name of options is `GatsbyBlog`, query named as `FeedGatsbyBlog`.
 
 ```graphql
 {
