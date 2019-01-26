@@ -23,6 +23,24 @@ const normalize = (item) => {
   }
 }
 
+const renameSymbolMap = {
+  _: 'text',
+  $: 'attrs',
+}
+
+const renameSymbolKeys = (obj) => {
+  Object.keys(obj).forEach(key => {
+    if (typeof　obj[key] === 'object') {
+      renameSymbolKeys(obj[key])
+    }
+    if (renameSymbolMap[key]) {
+      obj[renameSymbolMap[key]] = obj[key]
+      delete obj[key]
+    }
+  })
+}
+
+
 const createContentDigest = obj =>
   crypto
     .createHash(`md5`)
@@ -51,9 +69,10 @@ exports.sourceNodes = async ({
   const feed = await parser.parseURL(url)
   feed.items.forEach(item => {
     const nodeId = createNodeId(item.link)
-    const normalized = normalize(item)
+    const normalizedItem = normalize(item)
+    renameSymbolKeys(normalizedItem)
     createNode({
-      ...normalized,
+      ...normalizedItem,
       id: nodeId,
       parent: null,
       children: [],
