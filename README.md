@@ -26,7 +26,14 @@ module.exports = {
       resolve: `gatsby-source-rss-feed`,
       options: {
         url: `https://www.gatsbyjs.org/blog/rss.xml`,
-        name: `GatsbyBlog`
+        name: `GatsbyBlog`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        parserOption: {
+          customFields: {
+            item: ['itunes:duration']
+          }
+        }
       }
     }
   ]
