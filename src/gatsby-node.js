@@ -1,5 +1,27 @@
 import crypto from 'crypto'
 import Parser from 'rss-parser'
+import omitBy from 'lodash/omitBy'
+
+const normalize = (item) => {
+  const namespaceMatched = Object.keys(item).filter(e => e.match(/:/))
+  if (namespaceMatched.length === 0) {
+    return item
+  }
+
+  let namespaced = {}
+  namespaceMatched.forEach(key => {
+    const [namespace, childKey] = key.split(":")
+    if (!namespaced[namespace]) {
+      namespaced[namespace] = {}
+    }
+    namespaced[namespace][childKey] = item[key]
+  })
+
+  return {
+    ...omitBy(item, (_, key) => key.match(/:/)),
+    ...namespaced,
+  }
+}
 
 const createContentDigest = obj =>
   crypto
@@ -13,6 +35,7 @@ exports.sourceNodes = async ({
 }, {
   url,
   name,
+  parserOption = {}
 }) => {
   if (!url) {
     throw new Error('url is required.')
@@ -23,13 +46,14 @@ exports.sourceNodes = async ({
   }
 
   const { createNode } = actions
-  const parser = new Parser()
+  const parser = new Parser(parserOption)
 
   const feed = await parser.parseURL(url)
   feed.items.forEach(item => {
     const nodeId = createNodeId(item.link)
+    const normalized = normalize(item)
     createNode({
-      ...item,
+      ...normalized,
       id: nodeId,
       parent: null,
       children: [],

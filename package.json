@@ -24,6 +24,7 @@
     "@babel/preset-env": "7.2.3"
   },
   "dependencies": {
+    "lodash": "^4.17.11",
     "rss-parser": "^3.6.2"
   },
   "homepage": "https://github.com/mottox2/gatsby-source-rss-feed"
