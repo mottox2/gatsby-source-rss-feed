@@ -65,3 +65,18 @@ When name of options is `GatsbyBlog`, query named as `FeedGatsbyBlog`.
   }
 }
 ```
+
+Data not part of the `items` can be accessed with `Feed${name}Meta`
+
+When name of options is `GatsbyBlog`, query named as `FeedGatsbyBlogMeta`.
+
+```graphql
+{
+  feedGatsbyBlogMeta {
+    title
+    author
+    description
+    lastBuiltDate
+  }
+}
+```
