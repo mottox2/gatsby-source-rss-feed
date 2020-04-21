@@ -67,7 +67,9 @@ exports.sourceNodes = async ({
   const parser = new Parser(parserOption)
 
   const feed = await parser.parseURL(url)
-  feed.items.forEach(item => {
+  const { items, ...other } = feed
+
+  items.forEach(item => {
     const nodeId = createNodeId(item.link)
     const normalizedItem = normalize(item)
     renameSymbolKeys(normalizedItem)
@@ -82,4 +84,17 @@ exports.sourceNodes = async ({
       }
     })
   })
+
+  const meta = {};
+  Object.keys(other).forEach(key => meta[key] = feed[key]);
+  createNode({
+    id: createNodeId(name),
+    ...meta,
+    parent: null,
+    children: [],
+    internal: {
+      contentDigest: createContentDigest(feed.title),
+      type: `Feed${name}Meta`
+    }
+  });
 }
