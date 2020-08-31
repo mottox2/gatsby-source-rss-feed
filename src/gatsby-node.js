@@ -70,7 +70,7 @@ exports.sourceNodes = async ({
   const { items, ...other } = feed
 
   items.forEach(item => {
-    const nodeId = createNodeId(item.guid)
+    const nodeId = createNodeId(item.guid || item.link)
     const normalizedItem = normalize(item)
     renameSymbolKeys(normalizedItem)
     createNode({
