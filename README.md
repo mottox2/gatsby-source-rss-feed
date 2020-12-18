@@ -18,6 +18,54 @@ yarn add gatsby-source-rss-feed
 
 ## How to use
 
+### basic pattern
+
+```js
+// In your gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://www.gatsbyjs.org/blog/rss.xml`,
+        name: `GatsbyBlog`,
+      }
+    }
+  ]
+}
+```
+
+### use multiple feed
+
+
+```js
+// In your gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://www.gatsbyjs.org/blog/rss.xml`,
+        name: `GatsbyBlog`,
+      }
+    }
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://www.gatsbyjs.org/blog/rss.xml`,
+        name: `MyBlog`,
+      }
+    }
+  ]
+}
+```
+
+### with parserOption
+
+This library use [rss-parser](https://github.com/bobby-brennan/rss-parser#readme).
+
+You can pass options via parserOptions.
+
 ```js
 // In your gatsby-config.js
 module.exports = {
