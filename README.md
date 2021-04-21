@@ -27,8 +27,8 @@ module.exports = {
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
-        url: `https://www.gatsbyjs.org/blog/rss.xml`,
-        name: `GatsbyBlog`,
+        url: `http://static.userland.com/gems/backend/rssTwoExample2.xml`,
+        name: `ExampleRSS`,
       }
     }
   ]
@@ -45,14 +45,14 @@ module.exports = {
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
-        url: `https://www.gatsbyjs.org/blog/rss.xml`,
-        name: `GatsbyBlog`,
+        url: `http://static.userland.com/gems/backend/rssTwoExample2.xml`,
+        name: `ExampleRSS`,
       }
     }
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
-        url: `https://www.gatsbyjs.org/blog/rss.xml`,
+        url: `http://static.userland.com/gems/backend/rssTwoExample2.xml`,
         name: `MyBlog`,
       }
     }
@@ -73,8 +73,8 @@ module.exports = {
     {
       resolve: `gatsby-source-rss-feed`,
       options: {
-        url: `https://www.gatsbyjs.org/blog/rss.xml`,
-        name: `GatsbyBlog`,
+        url: `http://static.userland.com/gems/backend/rssTwoExample2.xml`,
+        name: `ExampleRSS`,
         // Optional
         // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
         parserOption: {
@@ -92,11 +92,11 @@ module.exports = {
 
 Query is `Feed${name}`.
 
-When name of options is `GatsbyBlog`, query named as `FeedGatsbyBlog`.
+When name of options is `ExampleRSS`, query named as `FeedExampleRSS`.
 
 ```graphql
 {
-  allFeedGatsbyBlog {
+  allFeedExampleRSS {
     edges {
       node {
         title
@@ -106,7 +106,7 @@ When name of options is `GatsbyBlog`, query named as `FeedGatsbyBlog`.
     }
   }
 
-  feedGatsbyBlog {
+  feedExampleRSS {
     title
     link
     content
@@ -116,11 +116,11 @@ When name of options is `GatsbyBlog`, query named as `FeedGatsbyBlog`.
 
 Data not part of the `items` can be accessed with `Feed${name}Meta`
 
-When name of options is `GatsbyBlog`, query named as `FeedGatsbyBlogMeta`.
+When name of options is `ExampleRSS`, query named as `FeedExampleRSSMeta`.
 
 ```graphql
 {
-  feedGatsbyBlogMeta {
+  feedExampleRSSMeta {
     title
     author
     description
